@@ -9,7 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-Vue.use(BootstrapVue) // Telling Vue to use this in whole application
+Vue.use(BootstrapVue) 
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -31,4 +31,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    methods: {
+        logout() {
+            document.getElementById('logout-form').submit();
+
+        }
+    },
 });

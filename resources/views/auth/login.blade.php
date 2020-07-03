@@ -1,76 +1,60 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<b-container>
+    <b-row class="justify-content-center">
+        <b-col cols="2"></b-col>
+        <b-col cols="8">
+            <b-card title="{{ __('Login') }}">
+            <b-alert variant="success" show>Por favor ingresa tuss datos: </b-alert>                  
+              
+            <b-form method="POST" action="{{ route('login') }}">
+                @csrf
 
-                <div class="card-body">
-                    
-                    <b-alert variant="success" show>Por favor ingresa tuss datos: </b-alert>
+                <b-form-group                           
+                    label="{{ __('E-Mail Address') }}:"
+                    label-for="email"                            
+                    description="Nunca compartiremos tus datos. Estan seguros con nosotros">
+                      
+                    <b-form-input
+                        id="email"                            
+                        type="email"                                                
+                        value="{{ old('email') }}" 
+                        placeholder="Enter email">
+                        required autocomplete="email" autofocus                             
+                    </b-form-input>
+                </b-form-group>                        
+                  
+                <b-form-group                           
+                    label="{{ __('Password') }}:"
+                    label-for="password">                                                        
+                      
+                    <b-form-input
+                        id="password"                            
+                        type="password"                                                
+                        value="{{ old('password') }}">                                                                 
+                    </b-form-input>
+                </b-form-group>                        
+                
+                <b-form-group>
+                    <b-form-checkbox name="remember" 
+                        {{ old('remember') ? 'checked' : '' }}> 
+                        {{ __('Remember Me') }}
+                    </b-form-checkbox>
+                </b-form-group>                  
+                  
+                <b-button type="submit" variant="primary">
+                    {{ __('Login') }}
+                </b-button>
+                          
+                <b-button href="{{ route('password.request') }}" variant="link">
+                    {{ __('Forgot Your Password?') }}
+                </b-button>                
 
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+              </b-form>
+          </b-card>                      
+        </b-col>
+        <b-col cols="2"></b-col>
+    </b-row>
+</b-container>
 @endsection
