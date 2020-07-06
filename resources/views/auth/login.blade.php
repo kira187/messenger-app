@@ -19,6 +19,7 @@
                     <b-form-input
                         id="email"                            
                         type="email"                                                
+                        name="email"
                         value="{{ old('email') }}" 
                         placeholder="Enter email">
                         required autocomplete="email" autofocus                             
@@ -32,6 +33,7 @@
                     <b-form-input
                         id="password"                            
                         type="password"                                                
+                        name="password"
                         value="{{ old('password') }}">                                                                 
                     </b-form-input>
                 </b-form-group>                        
