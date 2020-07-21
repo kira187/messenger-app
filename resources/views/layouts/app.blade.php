@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html class="h-100">
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -17,13 +17,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 </head>
-<body>
+<body  class="h-100">
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
 
-    <div id="app">
+    <div id="app" class="h-100">
         <b-navbar toggleable="sm" type="dark" variant="primary">
             <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
         
