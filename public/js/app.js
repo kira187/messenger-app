@@ -80986,6 +80986,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "b-row",
+    { staticClass: "h-100" },
     [
       _c(
         "b-col",
