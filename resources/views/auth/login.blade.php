@@ -6,15 +6,23 @@
         <b-col cols="2"></b-col>
         <b-col cols="8">
             <b-card title="{{ __('Login') }}">
-            <b-alert variant="success" show>Por favor ingresa tuss datos: </b-alert>                  
+            
+                @if ($errors->any())
+                    <b-alert variant="danger" show>
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </b-alert>                   
+                @endif
               
             <b-form method="POST" action="{{ route('login') }}">
                 @csrf
 
                 <b-form-group                           
                     label="{{ __('E-Mail Address') }}:"
-                    label-for="email"                            
-                    description="Nunca compartiremos tus datos. Estan seguros con nosotros">
+                    label-for="email"                            >
                       
                     <b-form-input
                         id="email"                            
