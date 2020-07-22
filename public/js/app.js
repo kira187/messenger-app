@@ -1939,6 +1939,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -80997,13 +81021,83 @@ var render = function() {
             {
               staticClass: "h-100",
               attrs: {
-                "footer-bg-variant": "dark",
+                "footer-bg-variant": "light",
                 "footer-border-varianr": "dark",
                 title: "Conversacion activa"
               }
             },
             [
-              _c("p", { staticClass: "card-text" }, [_vm._v("Lorem impsun ")]),
+              _c(
+                "b-media",
+                {
+                  staticClass: "mb-2",
+                  attrs: { "vertical-align": "center" },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "aside",
+                      fn: function() {
+                        return [
+                          _c("b-img", {
+                            attrs: {
+                              rounded: "circle",
+                              blank: "",
+                              "blank-color": "#ccc",
+                              width: "48",
+                              alt: "placeholder"
+                            }
+                          })
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ])
+                },
+                [
+                  _vm._v(" "),
+                  _c("b-card", [
+                    _vm._v(
+                      "\n                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.                    \n                "
+                    )
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-media",
+                {
+                  staticClass: "mb-2",
+                  attrs: { "right-align": "", "vertical-align": "center" },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "aside",
+                      fn: function() {
+                        return [
+                          _c("b-img", {
+                            attrs: {
+                              rounded: "circle",
+                              blank: "",
+                              "blank-color": "#ccc",
+                              width: "48",
+                              alt: "placeholder"
+                            }
+                          })
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ])
+                },
+                [
+                  _vm._v(" "),
+                  _c("b-card", [
+                    _vm._v(
+                      "\n                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.                    \n                "
+                    )
+                  ])
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -81011,22 +81105,41 @@ var render = function() {
                 [
                   _c(
                     "b-form",
-                    { staticClass: "my-3" },
+                    { staticClass: "mb-0" },
                     [
-                      _c("b-form-input", {
-                        staticClass: "text-center",
-                        attrs: {
-                          type: "text",
-                          placeholder: "Buscar contacto...."
-                        }
-                      })
+                      _c(
+                        "b-input-group",
+                        [
+                          _c("b-form-input", {
+                            staticClass: "text-center",
+                            attrs: {
+                              type: "text",
+                              placeholder: "Escribe un mensaje"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "b-input-group-append",
+                            [
+                              _c(
+                                "b-button",
+                                { attrs: { variant: "primary" } },
+                                [_vm._v("Enviar")]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
                 ],
                 1
               )
-            ]
+            ],
+            1
           )
         ],
         1
