@@ -4,20 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use Facade\Ignition\QueryRecorder\Query;
 use Illuminate\Support\Facades\DB;
 
 class MessageController extends Controller
 {
-    public function index() 
+    public function index(Request $request) 
     {
         $userId = auth()->id();
+        $contactId = $request->contact_id;
 
         return Message::select(
             'id',
             DB::raw("IF(`from_id`=$userId, true, false) as written_by_me"),            
             'created_at', 
             'content'
-        )->get();
+            )->where(function ($query) use ($userId,$contactId) {
+                $query->where('from_id', $userId)->where('to_id', $contactId);
+            })->orWhere(function ($query) use ($userId,$contactId) {
+                $query->where('from_id', $contactId)->where('to_id', $userId);
+            })->get();
     }
      public function store(Request $request) 
      {
